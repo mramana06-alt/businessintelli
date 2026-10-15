@@ -1,0 +1,16 @@
+Business Intelli Solutions: website (exported 2026-10-15)
+
+Open it on this computer: double-click index.html (or open it in Chrome, Edge or Firefox). No server is needed.
+
+Put it on your web host: upload everything in this folder, keeping the folders as they are:
+  - the site's main address: put the files in the web root (often public_html or www), after backing up what is there;
+  - or a section of the site: put them in a sub-folder (e.g. /new/); every path is relative.
+
+What is included: the page (index.html), its styles (assets/), its scripts (app.bundle.js) and the published content
+with the site settings (site-data.js).
+What is not: sign-in, the Content Studio and visitor comments (they need the Node server).
+Contact form: hidden (no form service was given); the contact page shows the phone and address. Export again with --leads-endpoint <url> to turn it on.
+Fonts load from Google Fonts when the computer is online; offline, the browser's own fonts are used.
+
+After content changes: export again (node tools/export-static.mjs --org businessintelli) and replace site-data.js (and any other
+changed files).

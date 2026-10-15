@@ -1,0 +1,84 @@
+/* Conversation-first flavor */
+.fx-conversation { height: 100%; }
+/* The single row is bounded (minmax(0, 1fr)) so the thread scrolls inside the conversation and the composer stays
+   pinned at the bottom; an auto row would grow with the history and push the composer below the fold. */
+.cv { display: grid; grid-template-columns: 280px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); height: 100%; }
+.cv-side { border-right: 1px solid var(--line); background: var(--bg-2); padding: 20px 16px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
+.cv-brand { display: flex; gap: 12px; align-items: center; }
+.cv-brand .mono, .cv .mono { width: 40px; height: 40px; border-radius: 12px; background: var(--brand); color: #fff; display: grid; place-items: center; font-weight: 800; letter-spacing: -.03em; flex: none; }
+.cv .mono.long { font-size: 12px; letter-spacing: 0; }
+.cv-brand strong { display: block; font-size: 15px; }
+.cv-brand small { display: block; color: var(--ink-2); font-size: 12px; line-height: 1.35; }
+.cv-topics { display: grid; gap: 2px; }
+.cv-topics .kicker { margin-bottom: 6px; }
+.cv-topic { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; background: none; border: 0; color: var(--ink); text-align: left; font-size: 14px; }
+.cv-topic:hover { background: var(--surface); box-shadow: var(--shadow); }
+.cv-topic .ico { color: var(--brand-text); }
+.cv-context { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; display: grid; gap: 8px; }
+.ctx-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 13.5px; }
+.ctx-list li { display: flex; gap: 8px; align-items: center; }
+.ctx-list .ico { color: var(--accent-text); }
+.cv-side-f { margin-top: auto; }
+
+.cv-main { display: flex; flex-direction: column; min-width: 0; min-height: 0; height: 100%; }
+.cv-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 24px; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(10px); }
+.cv-rep { display: flex; gap: 10px; align-items: center; }
+.cv-rep strong { display: block; font-size: 15px; }
+.cv-rep small { display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 12px; }
+.cv-rep small i { width: 7px; height: 7px; border-radius: 50%; background: #30a46c; }
+.cv-top-r { display: flex; gap: 8px; align-items: center; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; flex: none; color: #fff; background: conic-gradient(from 200deg, var(--brand), var(--accent), var(--brand)); box-shadow: 0 4px 14px color-mix(in srgb, var(--brand) 35%, transparent); }
+
+.cv-thread { flex: 1; min-height: 0; overflow-y: auto; padding: 28px 24px 12px; scroll-behavior: smooth; }
+.msg { display: flex; gap: 12px; max-width: 900px; margin: 0 auto 22px; animation: msgin .35s ease both; }
+.msg.user { justify-content: flex-end; }
+.msg.user .bubble { background: var(--brand); color: #fff; padding: 11px 16px; border-radius: 18px 18px 4px 18px; max-width: 75%; font-size: 15px; min-width: 0; overflow-wrap: anywhere; box-shadow: 0 6px 18px color-mix(in srgb, var(--brand) 25%, transparent); }
+.msg.agent .bubble { flex: 1; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 4px 18px 18px 18px; padding: 20px 22px; box-shadow: var(--shadow); display: grid; gap: 16px; }
+.msg.agent .answer-h { font-size: 22px; }
+.msg.agent .answer-t p { font-size: 15.5px; }
+.msg.agent .grounding { margin-top: 10px; }
+.msg.intro .lead-in { font-size: 17px; line-height: 1.55; }
+.msg.pending .bubble { padding: 14px 18px; flex: 0 1 auto; }
+.cv-blocks .blk:first-child { margin-top: 0; }
+.cv-blocks .blk:last-child { margin-bottom: 0; }
+.cv-blocks .blk { margin: 18px 0; }
+@keyframes msgin { from { opacity: 0; transform: translateY(8px); } }
+
+.cv-composer { padding: 12px 24px 16px; border-top: 1px solid var(--line); background: var(--bg); }
+.cv-input { max-width: 900px; margin: 0 auto; display: flex; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 6px 6px 6px 16px; box-shadow: var(--shadow); }
+.cv-input:focus-within { border-color: var(--brand); box-shadow: 0 0 0 4px var(--brand-soft); }
+.cv-input input { flex: 1; border: 0; background: none; outline: none; font-size: 15.5px; min-width: 0; color: var(--ink); }
+.cv-input .send { width: 42px; height: 42px; border-radius: 12px; border: 0; background: var(--brand); color: #fff; display: grid; place-items: center; }
+.cv-hint { max-width: 900px; margin: 8px auto 0; font-size: 12px; color: var(--ink-2); display: flex; align-items: center; gap: 6px; }
+.fx-conversation .only-mobile { display: none; }
+
+@container stage (max-width: 980px) {
+  .cv { grid-template-columns: 1fr; }
+  .cv-side { display: none; }
+  .fx-conversation .only-mobile { display: inline-flex; }
+  .cv-top-r .btn span { display: none; }
+}
+@container stage (max-width: 560px) {
+  .cv-thread, .cv-composer, .cv-top { padding-left: 16px; padding-right: 16px; }
+  .msg .avatar { display: none; }
+  .msg.agent .bubble { padding: 16px; }
+  .fx-conversation .only-mobile span { display: none; }
+  /* One line of text on phones: as flex items the note and the engine label wrapped into two narrow columns. */
+  .cv-hint { display: block; line-height: 1.45; }
+  .cv-hint .ico { vertical-align: -1px; margin-right: 4px; }
+}
+
+/* new content from the Content Studio, above the welcome, across the thread */
+.conv-latest { max-width: 900px; margin: 0 auto 22px; }
+.conv-latest .blk { margin: 0; }
+/* the view switcher in the header: icon only on phones */
+@container stage (max-width: 560px) { .fx-conversation .cv-switch span { display: none; } }
+
+/* the brand is the home button */
+button.cv-brand { width: 100%; border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+button.cv-brand:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 10px; }
+/* narrow screens (no sidebar): the logo in the header is the home button */
+.cv-home { display: none; border: 0; background: none; padding: 0; margin-right: 10px; cursor: pointer; flex: none; }
+.cv-home .mono { width: 34px; height: 34px; }
+@container stage (max-width: 980px) { .cv-home { display: inline-flex; } .cv-top { justify-content: flex-start; } .cv-top-r { margin-left: auto; } }
+@container stage (max-width: 560px) { .cv-top .cv-rep .avatar { display: none; } }
