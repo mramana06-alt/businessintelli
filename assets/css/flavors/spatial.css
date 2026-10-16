@@ -310,3 +310,5 @@
 .sp-tab:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 .sp-tabpanel { min-width: 0; }
 .sp-tabpanel > .blk { margin: 0; }
+/* The canvas zooms out (about 72%), so tabs need a taller box to stay at least 24px on screen. */
+.sp-tab { min-height: 38px; padding: 0 14px; }
