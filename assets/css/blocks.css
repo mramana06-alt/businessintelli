@@ -708,3 +708,76 @@ button.ar-head:hover { background: var(--bg-2); }
 .td-links a:hover { border-color: var(--brand); }
 .td-links a span { flex: 1; }
 .td-links .ico { color: var(--ink-2); flex: none; }
+
+/* A section's intro line and delivery steps (site.home lede/steps), and a featured home section in any flavor. */
+.blk-lede { margin: 0 0 12px; max-width: 70ch; color: var(--ink-2); font-size: 15.5px; line-height: 1.5; }
+.blk-steps { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; counter-reset: st; }
+.blk-steps li { counter-increment: st; display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 99px; background: var(--brand-soft); border: 1px solid color-mix(in srgb, var(--brand-text) 35%, transparent); color: var(--brand-text); font-size: 13.5px; font-weight: 600; }
+.blk-steps li::before { content: counter(st); font-size: 12px; font-weight: 700; opacity: .7; }
+.featured-sec { container-type: inline-size; display: grid; gap: 4px; padding: 22px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); min-width: 0; }
+.featured-sec > .block > h3, .featured-sec > h3 { margin-top: 0; }
+@container (max-width: 520px) { .featured-sec { padding: 16px; } }
+/* Narrow featured sections (phones, side panels): two cards per row rather than one long column. */
+@container (max-width: 560px) { .featured-sec .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .featured-sec .o-card { padding: 14px; } }
+/* Six cards fill two rows of three on wide screens rather than leaving a half-empty second row. */
+@container (min-width: 600px) { .cards:has(> :nth-child(6):last-child) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* Five guided paths share one row on wide screens rather than leaving one alone on a second row. */
+@container (min-width: 900px) { .jpick:has(> :nth-child(5):last-child) { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+
+/* ---- a site's business story (C-6): promise, card lines, delivery experience, approach, people ---- */
+.promise { display: grid; gap: 12px; padding: 30px 30px 26px; border-radius: 20px; border: 1px solid var(--line); background: linear-gradient(180deg, var(--surface) 60%, var(--brand-soft)); }
+.promise .eyebrow { margin: 0; }
+.promise-h { margin: 0; font-size: clamp(28px, 4vw, 42px); line-height: 1.08; letter-spacing: -.02em; font-weight: 800; color: var(--ink); text-wrap: balance; }
+.promise-p { margin: 0; max-width: 68ch; font-size: 17px; line-height: 1.55; color: var(--ink-2); }
+.promise-acts { margin-top: 6px; }
+@container (max-width: 520px) { .promise { padding: 22px 18px; } }
+
+.card-dl { margin: 10px 0 0; display: grid; gap: 8px; }
+.card-dl div { display: grid; gap: 2px; }
+.card-dl dt { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.card-dl dd { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ink); }
+
+.cases { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 14px; }
+.case { display: grid; align-content: start; gap: 6px; padding: 18px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; min-width: 0; }
+.case:hover, .case:focus-visible { border-color: var(--brand); }
+.case .kicker { margin: 0; }
+.case-h { margin: 0; font-size: 17px; line-height: 1.3; }
+.case-dl { margin: 4px 0 0; display: grid; gap: 8px; }
+.case-dl dt { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.case-dl dd { margin: 2px 0 0; font-size: 14.5px; line-height: 1.45; color: var(--ink); }
+
+.approach { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 12px; }
+.ap-step { display: grid; align-content: start; gap: 6px; padding: 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); min-width: 0; }
+.ap-n { margin: 0; display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 16px; color: var(--ink); }
+.ap-n span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 99px; background: var(--brand); color: var(--on-brand); font-size: 13px; }
+.ap-what { margin: 0; font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
+.ap-k { margin: 6px 0 0; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.ap-list { margin: 0; padding-left: 18px; display: grid; gap: 3px; font-size: 14px; line-height: 1.4; color: var(--ink); }
+
+.pp-wrap { display: grid; gap: 16px; }
+.pp-leaders { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 12px; }
+.pp-person { display: flex; gap: 14px; align-items: flex-start; padding: 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); }
+.pp-ini { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 99px; background: var(--brand-soft); color: var(--brand-text); font-weight: 800; }
+.pp-person h4 { margin: 0; font-size: 16px; }
+.pp-role { margin: 2px 0 0; font-size: 14px; font-weight: 600; color: var(--brand-text); }
+.pp-note { margin: 6px 0 0; font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+.pp-exp, .pp-co { display: grid; gap: 6px; }
+.pp-co p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--ink); }
+.pp-mail { display: flex; align-items: center; gap: 6px; font-weight: 600; user-select: all; }
+.pp-offices { color: var(--ink-2) !important; }
+
+/* An official static site keeps generated-content notes off its marketing surfaces. */
+body.static-site .grounding, body.static-site .gd-why, body.static-site .cv-hint, body.static-site .db-ctx { display: none !important; }
+/* Fact values can be words ("Dallas, TX", "ISO 9001:2015"): a size that keeps them on one line in a five-up row. */
+.fact-v { font-size: clamp(20px, 2.1vw, 26px); overflow-wrap: anywhere; }
+.facts { grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); align-items: stretch; }
+/* Five delivery steps share one row; four engagements sit two by two (no card alone on a row). */
+.approach { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
+@container (min-width: 560px) { .cases:has(> :nth-child(4):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container (min-width: 1100px) { .cases:has(> :nth-child(4):last-child) { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* People and contact: the leaders across the top, expertise and company side by side, then the next step. */
+@container (min-width: 600px) { .pp-wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } .pp-leaders, .pp-acts { grid-column: 1 / -1; } }
+.pp-acts { margin: 0; }
+.pp-co p.ap-k { font-size: 12px; color: var(--ink-2); }
+
+.featured-sec > .blk { margin: 0; }

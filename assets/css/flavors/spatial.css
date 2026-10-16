@@ -299,3 +299,14 @@
 @media (min-width: 1800px) {
   .fx-spatial .sp-top, .fx-spatial .sp-controls { zoom: var(--stage-zoom, 1); }
 }
+
+/* The featured section sits inside the welcome island: no second card frame. */
+.sp-featured { padding: 0; border: 0; box-shadow: none; background: none; }
+
+/* The welcome island's story tabs. */
+.sp-tabs { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.sp-tab { min-height: 32px; padding: 0 12px; border-radius: 99px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); font-weight: 600; font-size: 13.5px; cursor: pointer; }
+.sp-tab[aria-selected="true"] { background: var(--brand); border-color: var(--brand); color: var(--on-brand); }
+.sp-tab:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.sp-tabpanel { min-width: 0; }
+.sp-tabpanel > .blk { margin: 0; }

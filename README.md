@@ -25,11 +25,15 @@ the **View** button or a link such as `index.html?flavor=guided`:
 
 ## Build
 
-Revision **C-5** (15 October 2026). An independent AI reviewer scored clarity, cleanliness, UI/UX, usability, ease of
-navigation and visual appearance at 8/10 or higher in every view.
+Revision **C-6** (16 October 2026). Every view's home page now leads with "Trusted Business Solutions Provider for
+Enterprises" and the six Business Solutions for Enterprises (ServiceNow, Salesforce, Oracle applications, Snowflake,
+Databricks, SAP S/4HANA), followed by delivery experience, how we deliver, company facts, broader capabilities, and
+people and contact. The previous revision, C-5, scored 8/10 or higher from an independent AI reviewer in every view;
+the review of C-6 is pending.
 
-- `app.bundle.js` SHA-256 `f8aae3c56bb359d1b3675c4af116467d816f2e7a98e55f4c4c442ea6ed938c1d`
-- `site-data.js` SHA-256 `1cfdeabeb26a20d61964fe0a2f03c8ee5c7938cbfaa03c706a2c399313167906`
+- `app.bundle.js` SHA-256 `f779be9a6a0dea10d371e0c4b484c97267b820792d57fc96522538ee370e3ba5`
+- `site-data.js` SHA-256 `e668c881dd876a8d79be1f3e6eebadd93fab197188b3dc1f587a9fff40fd2309`
 
-Pending owner decisions: the wording of the new AI and agentic services, and a home for the policy and privacy pages
-(they currently link to the WordPress site).
+Pending owner decisions: the wording of the AI and agentic services and of the enterprise solution cards; the
+certifications and partner level are shown as stated by the company; a home for the policy and privacy pages (they
+currently link to the WordPress site).

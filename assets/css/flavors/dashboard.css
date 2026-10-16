@@ -289,3 +289,17 @@ button.db-cell:hover { box-shadow: inset 0 0 0 2px var(--ink); }
   .db-progress-bar i { animation: none; width: 100%; opacity: .7; }
   .db-skel i { animation: none; }
 }
+
+/* The hero answer keeps its own height beside a taller side column. */
+.db-hero { align-items: start; }
+.db-kpis > .db-kpi:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+
+/* Phones: the topic bar wraps instead of hiding items off the edge (no half-visible controls); text-only labels. */
+@container stage (max-width: 559px) {
+  .db-side { overflow-x: visible; padding: 6px 8px; }
+  .db-nav { flex-wrap: wrap; gap: 2px 4px; }
+  .db-nav-i { padding: 6px 9px; gap: 0; }
+  .db-nav-i .ico { display: none; }
+  .db-nav-i[aria-current="page"]::before { bottom: 0; }
+}

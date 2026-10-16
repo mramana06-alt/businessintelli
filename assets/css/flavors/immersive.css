@@ -359,3 +359,13 @@
   .fx-immersive *, .fx-immersive *::before, .fx-immersive *::after { animation: none !important; transition: none !important; }
   .im-scene, .im-scene.past, .is-pending .im-scene.on { transform: none; filter: none; }
 }
+
+/* A promise site's opening scene: the headline is long, so it sits smaller than an org-name hero. */
+.im-eyebrow { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brand-text); }
+.im-org.im-org-promise { font-size: clamp(36px, 6.2cqi, 92px); line-height: 1.02; letter-spacing: -.035em; }
+.im-acts { justify-content: center; }
+.im-tile-d { display: block; margin-top: 4px; font-size: 13px; line-height: 1.35; color: var(--ink-2); }
+
+/* Promise welcome: the supporting paragraph reads as body text under the headline, with room before the actions. */
+.im-promise .im-tagline { font-size: clamp(16px, 1.55cqi, 21px); line-height: 1.55; max-width: 62ch; }
+.im-promise .im-acts { margin-top: 8px; }

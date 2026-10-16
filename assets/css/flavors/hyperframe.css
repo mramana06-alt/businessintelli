@@ -627,3 +627,7 @@
   .hf-screen { width: 100%; aspect-ratio: 1 / 1; max-height: max(280px, calc(100cqh - 300px)); }
   .hf-go span { display: none; }
 }
+
+/* The company briefing under the player: readable without playback. */
+.hf-brief { display: grid; gap: 16px; margin-top: 18px; }
+.hf-brief:empty { display: none; }
